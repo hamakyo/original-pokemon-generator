@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+
   <div class="container">
     <header>
       <h1>ポケモンジェネレータ⚡️</h1>
@@ -21,8 +21,67 @@
     </nav>
 
     <h2>🧠カスタム生成</h2>
+    <form id="custom-form">
+      <div class="panel-body">タイプ</div>
+      <label for="type1-select">タイプ1:</label>
+      <select id="type1-select" name="type1">
+        <option value="">ほのお</option>
+        <!-- タイプのオプションをJavaScriptで動的に生成 -->
+      </select>
 
-    <button id="generate-custom-btn">🧠ポケモンを生成する</button>
+      <label for="type2-select">タイプ2:</label>
+      <select id="type2-select" name="type2">
+        <option value="">みず</option>
+        <!-- タイプのオプションをJavaScriptで動的に生成 -->
+      </select>
+
+      <br>
+
+      <div class="panel-body">わざ</div>
+      <label for="move-type-select">わざタイプ:</label>
+      <select id="move-type-select">
+        <!-- わざタイプのオプションをJavaScriptで動的に生成 -->
+      </select>
+
+      <label for="move-select">わざ:</label>
+      <select id="move-select" name="moves">
+        <!-- 選択されたわざタイプに対応するわざのオプションをJavaScriptで動的に生成 -->
+      </select>
+
+      <br>
+
+      <div class="panel-body">とくせい</div>
+      <label for="ability-select">とくせい:</label>
+      <select id="ability-select" name="ability">
+        <!-- とくせいのオプションをJavaScriptで動的に生成 -->
+      </select>
+
+      <br>
+      
+      <div class="panel-body">種族値</div>
+      <label for="hp-input">HP:</label>
+      <input type="number" id="hp-input" name="hp" min="1" max="255" required>
+    
+      <label for="attack-input">こうげき:</label>
+      <input type="number" id="attack-input" name="attack" min="1" max="255" required>
+
+      <label for="attack-input">ぼうぎょ:</label>
+      <input type="number" id="defense-input" name="defense" min="1" max="255" required>
+
+      <label for="attack-input">とくこう:</label>
+      <input type="number" id="sp-attack-input" name="sp-attack" min="1" max="255" required>
+
+      <label for="attack-input">とくぼう:</label>
+      <input type="number" id="sp-defense-input" name="sp-defense" min="1" max="255" required>
+
+      <label for="attack-input">すばやさ:</label>
+      <input type="number" id="speed-input" name="speed" min="1" max="255" required>
+    
+    </form>
+
+    <br>
+    
+    <button id="generate-custom-btn" type="submit">🧠ポケモンを生成する</button>
 
     <div id="pokemon-data"></div>
   </div>
