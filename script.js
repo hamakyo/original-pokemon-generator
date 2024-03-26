@@ -1,8 +1,11 @@
+
+// タイプ・わざ・とくせいの配列
 const types = ["ほのお", "みず", "くさ", "でんき", "こおり", "かくとう", "どく", "じめん", "ひこう", "エスパー", "むし", "いわ", "ゴースト", "ドラゴン", "あく", "はがね", "フェアリー"];
 const moves = ["たいあたり", "はっぱカッター", "みずでっぽう", "かみなり", "こおりのつぶて", "かえんほうしゃ", "どくばり", "じしん", "つばさでうつ", "サイコキネシス", "むしのさざめき", "いわくだき", "シャドーボール", "りゅうのいかり", "あくのはどう", "てっぺき", "ムーンフォース"];
 const abilities = ["もうか", "げきりゅう", "しんりょく", "せいでんき", "ゆきがくれ", "こんじょう", "どくのトゲ", "すながくれ", "はとむね", "サイコメイカー", "むしのしらせ", "がんじょう", "プレッシャー", "りゅうのまい", "プレッシャー", "きんちょうかん", "フェアリースキン"];
 
-document.getElementById('generate-btn').addEventListener('click', function() {
+// ランダム生成
+document.getElementById('generate-random-btn').addEventListener('click', function() {
   const dataContainer = document.getElementById('pokemon-data');
   let htmlContent = '';
 
@@ -57,3 +60,13 @@ document.getElementById('generate-btn').addEventListener('click', function() {
   // 生成されたHTMLコンテンツをdiv要素にセット
   dataContainer.innerHTML = htmlContent;
 });
+
+
+// カスタム生成
+document.getElementById('generate-custom-btn').addEventListener('click', function() {
+    const dataContainer = document.getElementById('pokemon-data');
+    let htmlContent = '<p>test</p>';
+
+    dataContainer.innerHTML = htmlContent;
+
+  });
