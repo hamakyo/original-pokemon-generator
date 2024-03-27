@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>ポケモンジェネレータ</title>
+    <link rel="icon" type="image/x-icon" href="favicon_rounded.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <div class="container">
+  <div id="container">
     <header>
       <h1>ポケモンジェネレータ⚡️</h1>
-      <p>君だけのポケモンを創造しよう！</p>
+      <p>君だけのポケモンを生成しよう！</p>
     </header>
 
     <nav>
@@ -83,7 +85,13 @@
     
     <button id="generate-custom-btn" type="submit">🧠ポケモンを生成する</button>
 
-    <div id="pokemon-data"></div>
+    <div id="pokemon-data" class="hidden">
+      <div id="pokemon-info"></div>
+      <div id="pokemon-stats">
+          <canvas id="statsChart" width="400" height="400"></canvas>
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>

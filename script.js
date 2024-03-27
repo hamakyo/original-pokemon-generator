@@ -4,9 +4,13 @@ const types = ["ほのお", "みず", "くさ", "でんき", "こおり", "か�
 const moves = ["たいあたり", "はっぱカッター", "みずでっぽう", "かみなり", "こおりのつぶて", "かえんほうしゃ", "どくばり", "じしん", "つばさでうつ", "サイコキネシス", "むしのさざめき", "いわくだき", "シャドーボール", "りゅうのいかり", "あくのはどう", "てっぺき", "ムーンフォース"];
 const abilities = ["もうか", "げきりゅう", "しんりょく", "せいでんき", "ゆきがくれ", "こんじょう", "どくのトゲ", "すながくれ", "はとむね", "サイコメイカー", "むしのしらせ", "がんじょう", "プレッシャー", "りゅうのまい", "プレッシャー", "きんちょうかん", "フェアリースキン"];
 
+var statsChart; // チャート変数をグローバルスコープで宣言
+
 // ランダム生成
 document.getElementById('generate-random-btn').addEventListener('click', function() {
-  const dataContainer = document.getElementById('pokemon-data');
+    const pokemonDataContainer = document.getElementById('pokemon-data');
+    const infoContainer = document.getElementById('pokemon-info');
+    const statsContainer = document.getElementById('pokemon-stats');
   let htmlContent = '';
 
   // タイプをランダムに1つか2つ選択
@@ -42,6 +46,40 @@ document.getElementById('generate-random-btn').addEventListener('click', functio
       totalStats += stats[stat];
   }
 
+  // レーダーチャートのデータ設定
+    const data = {
+        labels: Object.keys(stats),
+        datasets: [{
+            label: '種族値',
+            data: Object.values(stats),
+            fill: true,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgb(255, 99, 132)',
+            pointBackgroundColor: 'rgb(255, 99, 132)',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: 'rgb(255, 99, 132)'
+        }]
+    };
+
+    // レーダーチャートのオプション設定
+    const config = {
+        type: 'radar',
+        data: data,
+        options: {
+            elements: {
+                line: {
+                    borderWidth: 3
+                }
+            }
+        },
+    };
+
+    // 既存のチャートインスタンスが存在する場合は破棄
+    if (statsChart) {
+        statsChart.destroy();
+    }
+
   // HTMLコンテンツの生成
   htmlContent += `<p>タイプ: ${selectedTypes.join(' / ')}</p>`;
   htmlContent += `<p>わざ:</p><ul>`;
@@ -57,8 +95,14 @@ document.getElementById('generate-random-btn').addEventListener('click', functio
   htmlContent += `</ul>`;
   htmlContent += `<p>種族値の合計: ${totalStats}</p>`;
 
-  // 生成されたHTMLコンテンツをdiv要素にセット
-  dataContainer.innerHTML = htmlContent;
+  // 生成されたHTMLコンテンツをpokemon-info要素にセット
+  infoContainer.innerHTML = htmlContent;
+
+  // pokemon-data要素を表示
+  pokemonDataContainer.classList.remove('hidden');
+
+  // 新しいチャートを作成
+  statsChart = new Chart(document.getElementById('statsChart'), config);
 });
 
 
