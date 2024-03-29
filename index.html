@@ -4,41 +4,100 @@
     <meta charset="UTF-8">
     <title>ポケモンジェネレータ</title>
     <link rel="icon" type="image/x-icon" href="favicon_rounded.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-  <div id="container">
-    <header>
+  <div class="container">
+
+    <header class="text-left my-4">
       <h1>ポケモンジェネレータ⚡️</h1>
       <p>君だけのポケモンを生成しよう！</p>
     </header>
-    <nav>
-      <ul>
-          <li><a href="index.html">ランダム生成</a></li>
-          <li><a href="custom.html">カスタム生成</a></li>
-      </ul>
-    </nav>
 
-    <h2>🎲ランダム生成</h2>
+    <ul class="nav nav-tabs mb-4" id="generatorTabs" role="tablist">
 
-    <button id="generate-random-btn">🎲ポケモンを生成する</button>
+      <li class="nav-item">
+        <a class="nav-link active" id="random-tab" data-toggle="tab" href="#random" role="tab" aria-controls="random" aria-selected="true">ランダム生成</a>
+      </li>
 
-    <div id="pokemon-data" class="hidden">
-      <div id="pokemon-info"></div>
-      <div id="pokemon-stats">
-          <canvas id="statsChart" width="400" height="400"></canvas>
+      <li class="nav-item">
+        <a class="nav-link" id="custom-tab" data-toggle="tab" href="#custom" role="tab" aria-controls="custom" aria-selected="false">カスタム生成</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" id="detail-tab" data-toggle="tab" href="#detail" role="tab" aria-controls="detail" aria-selected="false">ポケモン詳細</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" id="community-tab" data-toggle="tab" href="#community" role="tab" aria-controls="community" aria-selected="false">コミュニティ</a>
+      </li>
+
+    </ul>
+
+    <div class="tab-content" id="generatorTabsContent">
+
+      <div class="tab-pane fade show active" id="random" role="tabpanel" aria-labelledby="random-tab">
+        <h2 class="text-left">🎲ランダム生成</h2>
+
+        <div class="text-left my-4">
+          <button id="generate-random-btn" class="btn btn-primary btn-lg">🎲ポケモンを生成する</button>
+        </div>
+
+        <div id="pokemon-data" class="hidden">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <div id="pokemon-info" class="mb-4"></div>
+            </div>
+            <div class="col-md-6">
+              <div id="pokemon-stats" class="chart-container">
+                <canvas id="statsChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <div class="tab-pane fade" id="custom" role="tabpanel" aria-labelledby="custom-tab">
+        <h2 class="text-left">🛠️カスタム生成</h2>
+
+        <p>TBD</p>
+
+        <div class="text-left my-4">
+          <button id="generate-custom-btn" class="btn btn-primary btn-lg">🛠️ポケモンを生成する</button>
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="detail" role="tabpanel" aria-labelledby="detail-tab">
+        <h2 class="text-left">🔍ポケモン詳細</h2>
+
+        <p>TBD</p>
+
+      </div>
+
+      <div class="tab-pane fade" id="community" role="tabpanel" aria-labelledby="community-tab">
+        <h2 class="text-left">🌐コミュニティ</h2>
+
+        <p>TBD</p>
+
+      </div>
+
     </div>
 
   </div>
 
   <script src="script.js"></script>
 
-  <footer>
+  <footer class="text-center my-4">
     <p>©2024 hamakyo</p>
   </footer>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

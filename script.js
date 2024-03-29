@@ -10,7 +10,7 @@ var statsChart; // チャート変数をグローバルスコープで宣言
 document.getElementById('generate-random-btn').addEventListener('click', function() {
     const pokemonDataContainer = document.getElementById('pokemon-data');
     const infoContainer = document.getElementById('pokemon-info');
-    const statsContainer = document.getElementById('pokemon-stats');
+    // const statsContainer = document.getElementById('pokemon-stats');
   let htmlContent = '';
 
   // タイプをランダムに1つか2つ選択
@@ -67,6 +67,8 @@ document.getElementById('generate-random-btn').addEventListener('click', functio
         type: 'radar',
         data: data,
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
             elements: {
                 line: {
                     borderWidth: 3
